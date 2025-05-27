@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+
+
+        <record id="action_op_attendance_permission" model="ir.actions.act_window">
+            <field name="name">Attendance Permission</field>
+            <field name="res_model">op.attendance.permission</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>Manage Attendance Permissions here.</p>
+            </field>
+        </record>
+
+        <record id="action_op_attendance_config" model="ir.actions.act_window">
+            <field name="name">Attendance Configurations</field>
+            <field name="res_model">op.attendance.config</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p>Manage Attendance Configurations here.</p>
+            </field>
+        </record>
+    </data>
+</odoo>

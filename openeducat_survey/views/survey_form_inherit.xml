@@ -1,0 +1,26 @@
+<odoo>
+    <record id="survey_survey_view_form_inherit" model="ir.ui.view">
+        <field name="name">survey.survey.view.form.inherit</field>
+        <field name="model">survey.survey</field>
+        <field name="inherit_id" ref="survey.survey_survey_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Tambahkan course_id setelah title -->
+            <xpath expr="//field[@name='title']" position="after">
+                <field name="course_id" string="Course" placeholder="Select a course..." create="true"/>
+            </xpath>
+
+            <xpath expr="//field[@name='course_id']" position="after">
+                <field name="is_quiz" string="Is Quiz?" placeholder="Centang jika ini adalah kuis"/>
+            </xpath>
+            <xpath expr="//field[@name='is_quiz']" position="after">
+                <field name="batch_id" string="Batch" domain="[('active', '=', True)]" modifiers="{'invisible': [('is_quiz', '=', False)]}" placeholder="Select a batch..."/>
+            </xpath>
+            <xpath expr="//field[@name='batch_id']" position="after">
+                <field name="start_datetime" string="Start Date" modifiers="{'invisible': [('is_quiz', '=', False)]}" placeholder="Select start time..."/>
+            </xpath>
+            <xpath expr="//field[@name='start_datetime']" position="after">
+                <field name="end_datetime" string="End Date" modifiers="{'invisible': [('is_quiz', '=', False)]}" placeholder="Select end time..."/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

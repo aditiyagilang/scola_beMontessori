@@ -1,0 +1,9 @@
+<odoo>
+    <data>
+        <record id="action_attendance_staff" model="ir.actions.act_url">
+            <field name="name">Attendance Staff</field>
+            <field name="url">/attendance_staff</field>
+            <field name="target">new</field>
+        </record>
+    </data>
+</odoo>

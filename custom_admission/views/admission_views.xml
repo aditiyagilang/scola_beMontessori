@@ -1,0 +1,93 @@
+<odoo>
+    <record id="view_op_admission_form_inherit_custom" model="ir.ui.view">
+        <field name="name">op.admission.form.inherit.custom</field>
+        <field name="model">op.admission</field>
+        <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+        <field name="arch" type="xml">
+
+            <!-- Tambahkan setelah field first_name -->
+            <xpath expr="//field[@name='first_name']" position="after">
+                <field name="full_name"/>
+                <field name="nisn"/>
+            </xpath>
+
+            <!-- Tambahkan jalur dan jenis pendaftaran -->
+            <xpath expr="//page[@name='admission_detail']/group[1]/group[1]" position="inside">
+                <field name="jenis_pendaftaran"/>
+                <field name="jalur_pendaftaran"/>
+            </xpath>
+
+            <!-- Tambahkan data orang tua di bawah tab Personal Detail -->
+            <xpath expr="//page[@name='personal_detail']/group[last()]" position="after">
+                <group string="Data Orang Tua">
+                    <group>
+                        <field name="parent_name"/>
+                        <field name="parent_relation"/>
+                        <field name="parent_job"/>
+                    </group>
+                    <group>
+                        <field name="parent_phone"/>
+                        <field name="parent_address"/>
+                        <field name="parent_marital_status"/>
+                    </group>
+                </group>
+            </xpath>
+
+            <!-- Tambahkan Tab Baru: Dokumen Jalur Pendaftaran -->
+            <xpath expr="//notebook" position="inside">
+                <page string="Dokumen Jalur" name="jalur_documents">
+                    <!-- Zonasi -->
+                    <group modifiers="{'invisible': [['jalur_pendaftaran', '!=', 'zonasi']]}">
+                        <field name="zona_ids">
+                            <tree editable="bottom">
+                                <field name="scan_kk"/>
+                                <field name="scan_ijazah"/>
+                                <field name="bukti_pembayaran"/>
+                                <field name="pas_foto"/>
+                                <field name="latitude_user"/>
+                                <field name="longitude_user"/>
+                                <field name="jarak"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <!-- Prestasi -->
+                    <group modifiers="{'invisible': [['jalur_pendaftaran', '!=', 'prestasi']]}">
+                        <field name="prestasi_ids">
+                            <tree editable="bottom">
+                                <field name="scan_kk"/>
+                                <field name="nilai_bhs_indo_smt1"/>
+                                <field name="nilai_matematika_smt1"/>
+                                <field name="nilai_bhs_inggris_smt1"/>
+                                <field name="nilai_ipa_smt1"/>
+                                <field name="nilai_bhs_indo_smt2"/>
+                                <field name="nilai_matematika_smt2"/>
+                                <field name="nilai_bhs_inggris_smt2"/>
+                                <field name="nilai_ipa_smt2"/>
+                                <field name="upload_raport"/>
+                                <field name="sertifikat_prestasi"/>
+                                <field name="bukti_pembayaran"/>
+                                <field name="pas_foto"/>
+                            </tree>
+                        </field>
+                    </group>
+
+                    <!-- Afirmasi -->
+                    <group modifiers="{'invisible': [['jalur_pendaftaran', '!=', 'afirmasi']]}">
+                        <field name="afirmasi_ids">
+                            <tree editable="bottom">
+                                <field name="scan_kk"/>
+                                <field name="scan_ijazah"/>
+                                <field name="bukti_bansos"/>
+                                <field name="jenis_bantuan"/>
+                                <field name="bukti_pembayaran"/>
+                                <field name="pas_foto"/>
+                            </tree>
+                        </field>
+                    </group>
+                </page>
+            </xpath>
+
+        </field>
+    </record>
+</odoo>

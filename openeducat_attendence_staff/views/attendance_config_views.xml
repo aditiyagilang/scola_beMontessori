@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <record id="view_attendance_config_form" model="ir.ui.view">
+            <field name="name">Attendance Configuration Form</field>
+            <field name="model">op.attendance.config</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Configuration">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="latitude"/>
+                            <field name="longitude"/>
+                            <field name="max_distance"/>
+                            <field name="latitude_str" readonly="1"/>
+                            <field name="longitude_str" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+
+        <!-- Tree View untuk Attendance Configuration -->
+        <record id="view_attendance_config_tree" model="ir.ui.view">
+            <field name="name">Attendance Configuration Tree</field>
+            <field name="model">op.attendance.config</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="latitude"/>
+                    <field name="longitude"/>
+                    <field name="max_distance"/>
+                </tree>
+            </field>
+        </record>
+        <record id="action_op_attendance_config" model="ir.actions.act_window">
+            <field name="name">Attendance Config</field>
+            <field name="res_model">op.attendance.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

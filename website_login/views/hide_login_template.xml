@@ -1,0 +1,16 @@
+<odoo>
+    <!-- Menghilangkan Button Sign In di Header -->
+    <template id="hide_sign_in_button" inherit_id="website.layout">
+        <xpath expr="//nav//a[contains(@href, '/web/login')]" position="replace"/>
+        <xpath expr="//header//a[contains(@href, '/web/login')]" position="replace"/>
+    </template>
+    
+    <!-- Redirect dari /web/login ke Homepage -->
+    <template id="override_login_page" inherit_id="web.login_layout">
+        <xpath expr="//body" position="inside">
+            <script type="text/javascript">
+                window.location.href = "/";
+            </script>
+        </xpath>
+    </template>
+</odoo>

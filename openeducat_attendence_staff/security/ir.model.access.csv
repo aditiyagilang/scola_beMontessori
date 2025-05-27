@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_op_attendance_staff_all,Access Attendance Staff All,model_op_attendance_staff,,1,1,1,1
+access_binary_staff_all,Access Attendance Staff All,model_binary_staff,,1,1,1,1
+access_op_attendance_permission_all,Access Attendance Permission All,model_op_attendance_permission,,1,1,1,1
+access_op_attendance_config_all,Access Attendance Config All,model_op_attendance_config,,1,1,1,1

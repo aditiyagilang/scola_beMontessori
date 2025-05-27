@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+
+        <record id="view_op_attendance_staff_tree" model="ir.ui.view">
+            <field name="name">op.attendance.staff.tree</field>
+            <field name="model">op.attendance.staff</field>
+            <field name="arch" type="xml">
+                <tree string="Attendance Staff">
+                    <field name="uid"/>
+                    <field name="present"/>
+                    <field name="datetime"/>
+                    <field name="session"/>
+                    <field name="verif"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_op_attendance_staff_form" model="ir.ui.view">
+            <field name="name">op.attendance.staff.form</field>
+            <field name="model">op.attendance.staff</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Staff">
+                    <sheet>
+                        <group>
+                            <field name="uid"/>
+                            <field name="present"/>
+                            <field name="datetime"/>
+                            <field name="session"/>
+                            <field name="verif"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="act_open_op_attendance_staff_view" model="ir.actions.act_window">
+            <field name="name">Attendance Staff (Verified)</field>
+            <field name="res_model">op.attendance.staff</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_op_attendance_staff_tree"/>
+            <field name="target">current</field>
+            <field name="domain">[('verif', '=', 1)]</field>
+        </record>
+
+    </data>
+</odoo>

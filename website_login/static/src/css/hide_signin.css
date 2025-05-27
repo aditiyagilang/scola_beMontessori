@@ -1,0 +1,12 @@
+/* Versi Lebih Spesifik */
+.nav-item a.nav-link[href*="/web/login"],
+a.nav-link[href*="/web/login"],
+a.btn-primary[href*="/web/login"],
+.header a.nav-link[href*="/web/login"],
+.navbar .dropdown-menu a[href*="/web/login"] {
+    display: none !important;
+}
+/* Debugging */
+.nav-item a.nav-link[href*="/web/login"] {
+    border: 2px solid red !important;
+}

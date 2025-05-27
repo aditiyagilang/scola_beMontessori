@@ -1,0 +1,39 @@
+<!-- <record id="view_op_admission_form_custom" model="ir.ui.view">
+    <field name="name">op.admission.form.custom</field>
+    <field name="model">op.admission</field>
+    <field name="inherit_id" ref="openeducat_admission.view_op_admission_form"/>
+    <field name="arch" type="xml">
+
+        <!-- Hide original first/middle/last name -->
+        <xpath expr="//field[@name='first_name']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='middle_name']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+        <xpath expr="//field[@name='last_name']" position="attributes">
+            <attribute name="invisible">1</attribute>
+        </xpath>
+
+        <!-- Replace with Full Name and NISN -->
+        <xpath expr="//field[@name='application_date']" position="before">
+            <field name="full_name" required="1"/>
+            <field name="nisn"/>
+            <field name="jenis_pendaftaran"/>
+            <field name="jalur_pendaftaran"/>
+        </xpath>
+
+        <!-- Parent Data inside Personal Detail Tab -->
+        <xpath expr="//page[@name='personal_detail']" position="inside">
+            <group string="Data Orang Tua">
+                <field name="parent_name"/>
+                <field name="parent_relation"/>
+                <field name="parent_job"/>
+                <field name="parent_phone"/>
+                <field name="parent_address"/>
+                <field name="parent_marital_status"/>
+            </group>
+        </xpath>
+
+    </field>
+</record> -->

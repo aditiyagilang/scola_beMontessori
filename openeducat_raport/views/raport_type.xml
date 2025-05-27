@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_openeducat_raport_type_form" model="ir.ui.view">
+        <field name="name">openeducat.raport.type.form</field>
+        <field name="model">openeducat_raport.type</field>
+        <field name="arch" type="xml">
+            <form string="Tipe Raport">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="classroom_id"/>
+                        <field name="exam_type_ids" widget="many2many_tags"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_openeducat_raport_type_tree" model="ir.ui.view">
+        <field name="name">openeducat.raport.type.tree</field>
+        <field name="model">openeducat_raport.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tipe Raport">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="classroom_id"/>
+                <field name="exam_type_ids" widget="many2many_tags"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record id="action_openeducat_raport_type" model="ir.actions.act_window">
+        <field name="name">Tipe Raport</field>
+        <field name="res_model">openeducat_raport.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

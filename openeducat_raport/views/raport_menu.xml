@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Menu Utama -->
+    <menuitem id="menu_openeducat_raport_root" name="Raport" sequence="10"/>
+
+    <!-- Submenu: Configurasi -->
+    <menuitem id="menu_raport_config" name="Configurasi" parent="menu_openeducat_raport_root" sequence="1"/>
+
+    <!-- Submenu Configurasi: Tipe Raport -->
+    <menuitem id="menu_openeducat_raport_type" name="Tipe Raport" parent="menu_raport_config" action="action_openeducat_raport_type" sequence="1"/>
+
+    <!-- Submenu Configurasi: Jenis Ujian -->
+    <menuitem id="menu_openeducat_exam_type" name="Jenis Ujian" parent="menu_raport_config" action="action_openeducat_exam_type" sequence="2"/>
+
+    <!-- Submenu Configurasi: Kriteria Ujian -->
+    <menuitem id="menu_openeducat_raport_criteria" name="Kriteria Ujian" parent="menu_raport_config" action="action_raport_criteria" sequence="3"/>
+
+    <!-- Submenu Configurasi: Capaian Kompetensi -->
+    <menuitem id="menu_raport_achievement" name="Capaian Kompetensi" parent="menu_raport_config" action="action_raport_achievement" sequence="4"/>
+
+    <!-- Submenu: Raport -->
+    <menuitem id="menu_raport_data" name="Raport" parent="menu_openeducat_raport_root" sequence="2"/>
+
+    <!-- Submenu Raport: Data Raport -->
+    <menuitem id="menu_raport_main" name="Data Raport" parent="menu_raport_data" action="action_raport" sequence="1"/>
+
+    <!-- Submenu Raport: Detail Raport -->
+    <menuitem id="menu_raport_detail" name="Detail Raport" parent="menu_raport_data" action="action_raport_detail" sequence="2"/>
+
+    <!-- Submenu Raport: Nilai Raport -->
+    <menuitem id="menu_raport_score" name="Nilai Raport" parent="menu_raport_data" action="action_raport_score" sequence="3"/>
+</odoo>

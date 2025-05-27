@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="view_exam_type_form" model="ir.ui.view">
+        <field name="name">openeducat.exam.type.form</field>
+        <field name="model">openeducat_raport.exam.type</field>
+        <field name="arch" type="xml">
+            <form string="Jenis Ujian">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="display_name" readonly="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_exam_type_tree" model="ir.ui.view">
+        <field name="name">openeducat.exam.type.tree</field>
+        <field name="model">openeducat_raport.exam.type</field>
+        <field name="arch" type="xml">
+            <tree string="Jenis Ujian">
+                <field name="name"/>
+                <field name="display_name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_openeducat_exam_type" model="ir.actions.act_window">
+        <field name="name">Jenis Ujian</field>
+        <field name="res_model">openeducat_raport.exam.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

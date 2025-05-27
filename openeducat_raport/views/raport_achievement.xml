@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- FORM VIEW: CAPAIAN KOMPETENSI -->
+    <record id="view_raport_achievement_form" model="ir.ui.view">
+        <field name="name">openeducat_raport.achievement.form</field>
+        <field name="model">openeducat_raport.achievement</field>
+        <field name="arch" type="xml">
+            <form string="Capaian Kompetensi">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="course_id"/> <!-- Tambahkan course_id di sini -->
+                       
+                    </group>
+                    <notebook>
+                        <page string="Tujuan Pembelajaran">
+                            <field name="tujuan_ids">
+                                <tree editable="bottom">
+                                    <field name="name" readonly="1"/>
+                                    <field name="classroom_id"/>
+                                    <field name="course_id"/>
+                                    <field name="bab_id"/> <!-- Tambahkan field bab_id -->
+                                    <field name="code"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- TREE VIEW: CAPAIAN KOMPETENSI -->
+    <record id="view_raport_achievement_tree" model="ir.ui.view">
+        <field name="name">openeducat_raport.achievement.tree</field>
+        <field name="model">openeducat_raport.achievement</field>
+        <field name="arch" type="xml">
+            <tree string="Capaian Kompetensi">
+                <field name="name"/>
+                <field name="description"/>
+                <field name="course_id"/> <!-- Optional: tampilkan juga di tree view -->
+            </tree>
+        </field>
+    </record>
+
+    <!-- ACTION -->
+    <record id="action_raport_achievement" model="ir.actions.act_window">
+        <field name="name">Capaian Kompetensi</field>
+        <field name="res_model">openeducat_raport.achievement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+</odoo>

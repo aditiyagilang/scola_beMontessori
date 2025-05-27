@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="menu_attendance_root" name="Attendance Staff" sequence="1"/>
+
+        <menuitem id="menu_attendance_staff"
+                  name="Attendance Staff"
+                  parent="menu_attendance_root"
+                  sequence="10"/>
+
+        <menuitem id="menu_attendance_config_root" name="Configurasi" parent="menu_attendance_root" sequence="20"/>
+
+        <menuitem id="menu_attendance_config"
+                  name="Configurations"
+                  parent="menu_attendance_config_root"
+                  action="action_op_attendance_config"
+                  sequence="11"/>
+
+        <menuitem id="menu_attendance_permission"
+                  name="Attendance Permission"
+                  parent="menu_attendance_staff"
+                  action="action_op_attendance_permission"
+                  sequence="1"
+                  groups="base.group_user"/>
+
+        <record id="action_op_attendance_config" model="ir.actions.act_window">
+            <field name="name">Attendance Configuration</field>
+            <field name="res_model">op.attendance.config</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_op_attendance_staff" model="ir.actions.act_window">
+            <field name="name">Attendance Records</field>
+            <field name="res_model">op.attendance.staff</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="action_op_attendance_permission" model="ir.actions.act_window">
+            <field name="name">Attendance Permission</field>
+            <field name="res_model">op.attendance.permission</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <menuitem id="menu_op_school_config_class_room"
+                  name="Class Room"
+                  action="act_open_op_classroom_view"
+                  groups="openeducat_core.group_op_back_office_admin"
+                  sequence="30"
+                  web_icon="openeducat_classroom,static/description/icon.png"
+                  />
+
+        <!-- <menuitem id="menu_op_classroom_sub"
+                  name="Class Rooms"
+                  sequence="10"
+                  parent="menu_op_school_config_class_room"
+                  action="act_open_op_classroom_view"
+                  groups="openeducat_core.group_op_back_office_admin"/> -->
+    </data>
+</odoo>

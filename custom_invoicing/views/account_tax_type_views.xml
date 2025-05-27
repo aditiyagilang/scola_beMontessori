@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Form View -->
+    <record id="view_account_tax_type_form" model="ir.ui.view">
+        <field name="name">account.tax.type.form</field>
+        <field name="model">account.tax.type</field>
+        <field name="arch" type="xml">
+            <form string="Tax Type">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_account_tax_type_tree" model="ir.ui.view">
+        <field name="name">account.tax.type.tree</field>
+        <field name="model">account.tax.type</field>
+        <field name="arch" type="xml">
+            <tree string="Tax Types">
+                <field name="name"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action untuk membuka view -->
+    <record id="action_account_tax_type" model="ir.actions.act_window">
+        <field name="name">Tax Types</field>
+        <field name="res_model">account.tax.type</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your Tax Types here.
+            </p>
+        </field>
+    </record>
+
+
+</odoo>

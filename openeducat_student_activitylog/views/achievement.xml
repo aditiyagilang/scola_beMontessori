@@ -1,0 +1,58 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_student_achievement_tree" model="ir.ui.view">
+            <field name="name">student.achievement.tree</field>
+            <field name="model">op.achievement</field>
+            <field name="arch" type="xml">
+                <tree string="Student Achievements">
+                    <field name="student_id"/>
+                    <field name="name"/>
+                    <field name="level_id"/>
+                    <field name="point"/>
+                    <field name="classroom_id"/>
+                    <field name="date"/>
+                    <field name="ranking" placeholder="Contoh: Juara 1 atau Harapan 2"/>
+                    <field name="category"/>
+                    <field name="status"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_student_achievement_form" model="ir.ui.view">
+            <field name="name">op.achievement.form</field>
+            <field name="model">op.achievement</field>
+            <field name="arch" type="xml">
+                <form string="Student Achievement">
+                    <sheet>
+                        <group>
+                            <field name="student_id"/>
+                            <field name="name"/>
+                            <field name="level_id"/>
+                            <field name="point"/>
+                            <field name="date"/>
+                            <field name="ranking" />
+                            <field name="classroom_id"/>
+                            <field name="category"/>
+                            <field name="status"/>
+                            <field name="evidence" filename="evidence_filename"/>
+                        </group>
+                        <group>
+                            <field name="evidence_filename" invisible="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_student_achievement" model="ir.actions.act_window">
+            <field name="name">Student Achievements</field>
+            <field name="res_model">op.achievement</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+   
+    </data>
+</odoo>

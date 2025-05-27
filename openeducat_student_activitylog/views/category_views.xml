@@ -1,0 +1,36 @@
+<odoo>
+    <record id="view_violation_category_tree" model="ir.ui.view">
+        <field name="name">op.violation.category.tree</field>
+        <field name="model">op.violation.category</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="min_point"/>
+                <field name="max_point"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_violation_category_form" model="ir.ui.view">
+        <field name="name">op.violation.category.form</field>
+        <field name="model">op.violation.category</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="name"/>
+                    <field name="min_point"/>
+                    <field name="max_point"/>
+                    <field name="color"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_violation_category" model="ir.actions.act_window">
+        <field name="name">Violation Categories</field>
+        <field name="res_model">op.violation.category</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+</odoo>

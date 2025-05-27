@@ -1,0 +1,49 @@
+<odoo>
+    <!-- Action untuk OpenEduCat News -->
+    <record id="action_op_news" model="ir.actions.act_window">
+        <field name="name">OpenEduCat News</field>
+        <field name="res_model">op.news</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- View untuk OpenEduCat News -->
+    <record id="view_op_news_form" model="ir.ui.view">
+        <field name="name">op.news.form</field>
+        <field name="model">op.news</field>
+        <field name="arch" type="xml">
+            <form string="OpenEduCat News">
+                <sheet>
+                    <group>
+                        <field name="judul"/>
+                        <field name="sumber"/>
+                        <field name="author"/>
+                        <field name="id_jenis"/>
+                        <field name="keterangan"/>
+                        <field name="dipublikasikan_pada"/>
+                        <field name="isi"/>
+                    </group>
+                    <group string="Images">
+                        <field name="gambar1" widget="image" class="oe_avatar"/>
+                        <field name="gambar2" widget="image" class="oe_avatar"/>
+                        <field name="gambar3" widget="image" class="oe_avatar"/>
+                        <field name="gambar4" widget="image" class="oe_avatar"/>
+                        <field name="gambar5" widget="image" class="oe_avatar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_op_news_tree" model="ir.ui.view">
+        <field name="name">op.news.tree</field>
+        <field name="model">op.news</field>
+        <field name="arch" type="xml">
+            <tree string="OpenEduCat News">
+                <field name="judul"/>
+                <field name="author"/>
+                <field name="id_jenis"/>
+                <field name="dipublikasikan_pada"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

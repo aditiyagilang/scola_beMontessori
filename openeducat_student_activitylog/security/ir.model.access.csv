@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_op_violation_log_all,Access Violation Log for All,model_op_violation_log,,1,1,1,1
+access_op_violation_category_all,Access Violation Category for All,model_op_violation_category,,1,1,1,1
+access_op_achievement_all,Access Achievement for All,model_op_achievement,,1,1,1,1
+access_op_achievement_level_all,Access Achievement Level for All,model_op_achievement_level,,1,1,1,1

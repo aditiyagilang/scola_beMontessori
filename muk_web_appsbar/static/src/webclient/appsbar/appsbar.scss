@@ -1,0 +1,182 @@
+.o_web_client {
+  display: grid !important;
+  grid-template-areas:
+    "banner banner"
+    "navbar navbar"
+    "sidebar content"
+    "components components";
+  grid-template-rows: auto auto 1fr auto;
+  grid-template-columns: auto 1fr;
+  > div:has(#oe_neutralize_banner) {
+    grid-area: banner;
+  }
+  > .o_navbar {
+    grid-area: navbar;
+  }
+  > .mk_apps_sidebar_panel {
+    grid-area: sidebar;
+  }
+  > .o_action_manager {
+    grid-area: content;
+  }
+  > .o-main-components-container {
+    grid-area: components;
+  }
+}
+
+.mk_apps_sidebar_panel {
+  @include mk-disable-scrollbar();
+  background-color: #fff;
+  width: var(--mk-sidebar-width, 0);
+  overflow-y: auto;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  z-index: 999;
+  .mk_apps_sidebar {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    white-space: nowrap;
+    .mk_apps_sidebar_menu {
+      padding: 0;
+      > li > a {
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 500;
+        overflow: hidden;
+        padding: 8px 11px;
+        text-decoration: none;
+        color: $mk-appbar-color;
+        text-overflow: ellipsis;
+        .mk_apps_sidebar_icon {
+          width: 22px;
+          height: 22px;
+          margin-right: 1rem;
+        }
+        font-weight: 500;
+      }
+
+      > li.active > a {
+        background: $mk-appbar-active;
+        color: $mk-appsmenu-color;
+      }
+      > li:hover > a {
+        background: $mk-appbar-active;
+        color: $mk-appsmenu-color;
+      }
+    }
+  }
+}
+
+.mk_sidebar_type_large {
+  --mk-sidebar-width: #{$mk-sidebar-large-width};
+}
+
+.mk_sidebar_type_small {
+  --mk-sidebar-width: #{$mk-sidebar-small-width};
+  .mk_apps_sidebar_name {
+    display: none;
+  }
+  .mk_apps_sidebar_icon {
+    margin-right: 0 !important;
+  }
+  .mk_apps_sidebar_logo {
+    display: none;
+  }
+}
+
+.mk_sidebar_type_invisible {
+  --mk-sidebar-width: 0;
+}
+
+.editor_has_snippets_hide_backend_navbar,
+.o_home_menu_background,
+.o_fullscreen {
+  --mk-sidebar-width: 0;
+}
+
+.editor_has_snippets_hide_backend_navbar .mk_apps_sidebar_panel {
+  transition: width 300ms;
+}
+
+// .mk_apps_sidebar_panel {
+// 	width: 12rem;
+// }
+
+@include media-breakpoint-only(md) {
+  .mk_sidebar_type_large {
+    --mk-sidebar-width: #{$mk-sidebar-small-width};
+    .mk_apps_sidebar_name {
+      display: none;
+    }
+    .mk_apps_sidebar_icon {
+      margin-right: 0 !important;
+    }
+    .mk_apps_sidebar_logo {
+      display: none;
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .mk_sidebar_type_large,
+  .mk_sidebar_type_small {
+    --mk-sidebar-width: 0;
+  }
+}
+
+// NAVBAR
+
+.o_main_navbar,
+.btn-primary,
+.btn-primary:active,
+.o_searchview_facet_label {
+  background-color: $primary_accent !important;
+  color: $inverse_accent !important;
+}
+.o_search_panel_section_icon {
+  color: $primary_accent !important;
+}
+.btn-secondary {
+  border-radius: 0;
+  border: solid 1px transparent;
+  color: $primary_accent !important;
+}
+o_list_table .o_list_view .o_list_table thead {
+  position: sticky;
+  top: 0;
+}
+.breadcrumb-item > a,
+.o_menu_item > a {
+  color: $primary_accent !important;
+}
+.fa-trash {
+  color: #f46a6a !important;
+}
+.o_main_navbar > a:hover {
+  background-color: lighten($primary_accent, 10%) !important;
+}
+
+.o_main_navbar > .o_menu_sections > button:hover,
+.o_main_navbar > .o_menu_sections > button {
+  background-color: var(--NavBar-brand-color, rgba(255, 255, 255, 0.9));
+}
+.o_main_navbar > .o_menu_apps > li > a:hover,
+.o_main_navbar > .o_menu_apps > li > a:active {
+  background-color: var(--NavBar-brand-color, rgba(255, 255, 255, 0.9));
+}
+.o_main_navbar > .o_menu_apps > .dropdown.show > .dropdown-menu.show {
+  max-height: 100vh !important;
+  height: 93vh !important;
+}
+
+.o_main_navbar .o_menu_sections .o_nav_entry, .o_main_navbar .o_menu_sections .dropdown-toggle {
+    background: $primary_accent !important;
+    border: 1px solid transparent;
+}
+
+.o_main_navbar .o_menu_brand {
+    padding-left: 0.8rem;
+    font-size: 1.2em;
+    color: var(--NavBar-brand-color, rgba(255, 255, 255, 0.9));
+}

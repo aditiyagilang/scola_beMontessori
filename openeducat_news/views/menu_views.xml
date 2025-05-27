@@ -1,0 +1,10 @@
+<odoo>
+    <!-- Menu Utama OpenEduCat News -->
+    <menuitem id="menu_openeducat_news_root" name="News" sequence="1"/>
+
+    <!-- Submenu untuk News Type -->
+    <menuitem id="menu_news_type_config" name="News Types" parent="menu_openeducat_news_root" action="action_news_type" sequence="2"/>
+    
+    <!-- Submenu untuk News List -->
+    <menuitem id="menu_op_news_list" name="News List" parent="menu_openeducat_news_root" action="action_op_news" sequence="1"/>
+</odoo>

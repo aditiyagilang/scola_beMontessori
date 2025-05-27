@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_op_admission_zona,access.op.admission.zona,model_op_admission_zona,base.group_user,1,1,1,1
+access_op_admission_prestasi,access.op.admission.prestasi,model_op_admission_prestasi,base.group_user,1,1,1,1
+access_op_admission_afirmasi,access.op.admission.afirmasi,model_op_admission_afirmasi,base.group_user,1,1,1,1

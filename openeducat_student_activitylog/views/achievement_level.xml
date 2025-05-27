@@ -1,0 +1,44 @@
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_achievement_level_tree" model="ir.ui.view">
+            <field name="name">op.achievement.level.tree</field>
+            <field name="model">op.achievement.level</field>
+            <field name="arch" type="xml">
+                <tree string="Achievement Levels">
+                    <field name="name"/>
+                    <field name="min_point"/>
+                    <field name="max_point"/>
+                    <field name="color"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_achievement_level_form" model="ir.ui.view">
+            <field name="name">op.achievement.level.form</field>
+            <field name="model">op.achievement.level</field>
+            <field name="arch" type="xml">
+                <form string="Achievement Level">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="min_point"/>
+                            <field name="max_point"/>
+                            <field name="color"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_achievement_level" model="ir.actions.act_window">
+            <field name="name">Achievement Levels</field>
+            <field name="res_model">op.achievement.level</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+     
+    </data>
+</odoo>

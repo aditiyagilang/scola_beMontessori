@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <!-- Tree View -->
+        <record id="view_op_lesson_session_tree" model="ir.ui.view">
+            <field name="name">op.lesson.session.tree</field>
+            <field name="model">op.lesson.session</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="start_time"/>
+                    <field name="end_time"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Form View -->
+        <record id="view_op_lesson_session_form" model="ir.ui.view">
+            <field name="name">op.lesson.session.form</field>
+            <field name="model">op.lesson.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_time"/>
+                            <field name="end_time"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="action_lesson_session" model="ir.actions.act_window">
+            <field name="name">Lesson Session</field>
+            <field name="res_model">op.lesson.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Menu -->
+       <menuitem id="menu_custom" name="Custom Menu" parent="base.menu_management"/> <!-- Tambahkan jika diperlukan -->
+        <menuitem id="menu_lesson_session" name="Lesson Session"
+            parent="menu_custom"
+            action="action_lesson_session"/>
+    </data>
+</odoo>

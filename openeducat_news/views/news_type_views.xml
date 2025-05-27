@@ -1,0 +1,35 @@
+<odoo>
+    <!-- Action untuk News Type -->
+    <record id="action_news_type" model="ir.actions.act_window">
+        <field name="name">News Types</field>
+        <field name="res_model">news.type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- View untuk News Type -->
+    <record id="view_news_type_form" model="ir.ui.view">
+        <field name="name">news.type.form</field>
+        <field name="model">news.type</field>
+        <field name="arch" type="xml">
+            <form string="News Type">
+                <sheet>
+                    <group>
+                        <field name="jenis"/>
+                        <field name="description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_news_type_tree" model="ir.ui.view">
+        <field name="name">news.type.tree</field>
+        <field name="model">news.type</field>
+        <field name="arch" type="xml">
+            <tree string="News Type">
+                <field name="jenis"/>
+                <field name="description"/>
+            </tree>
+        </field>
+    </record>
+</odoo>

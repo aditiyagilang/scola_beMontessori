@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_user_input_edit_form_view" model="ir.ui.view">
+        <field name="name">survey.user_input.view.form.inherit.edit</field>
+        <field name="model">survey.user_input</field>
+        <field name="inherit_id" ref="survey.survey_user_input_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Editable Answers" name="page_editable_answers">
+                    <field name="user_input_line_ids" mode="tree" no_label="1">
+                        <tree decoration-muted="skipped == True">
+                            <field name="question_sequence" column_invisible="True"/>
+                            <field name="create_date" optional="hidden"/>
+                            <field name="page_id" optional="hidden"/>
+                            <field name="question_id"/>
+                            <field name="answer_type" optional="hidden"/>
+                            <field name="skipped" hide="1"/>
+                            <field name="display_name" string="Answer"/>
+                            <field name="answer_is_correct"/>
+                            <field name="answer_score" sum="Score"/>
+                        </tree>
+                        <form string="Edit Answer">
+                            <group>
+                                <field name="question_id"/>
+                                <field name="display_name"/>
+                                <field name="answer_is_correct"/>
+                                <field name="answer_score"/>
+                            </group>
+                        </form>
+                    </field>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

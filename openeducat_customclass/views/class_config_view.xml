@@ -1,0 +1,51 @@
+<odoo>
+    <record id="view_class_config_form" model="ir.ui.view">
+        <field name="name">class.config.form</field>
+        <field name="model">class.config</field>
+        <field name="arch" type="xml">
+            <form string="Class Configuration">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="academic_year_id"/>
+                    </group>
+                    <notebook>
+                        <page string="Class Information">
+                            <field name="class_info">
+                                <tree editable="bottom">
+                                    <field name="name"/>
+                                    <field name="level"/>
+                                    <field name="total_students"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_class_config_tree" model="ir.ui.view">
+        <field name="name">class.config.tree</field>
+        <field name="model">class.config</field>
+        <field name="arch" type="xml">
+            <tree string="Class Configuration">
+                <field name="name"/>
+                <field name="academic_year_id"/>
+                <field name="total_classes"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_class_config" model="ir.actions.act_window">
+        <field name="name">Class Configuration</field>
+        <field name="res_model">class.config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+  <!-- <menuitem id="menu_class_config_root"
+          name="Class Configuration"
+          parent="menu_op_school_config_course"
+          action="action_class_config"/> -->
+
+</odoo>

@@ -1,0 +1,10 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_openeducat_raport_type,access_openeducat_raport_type,model_openeducat_raport_type,base.group_user,1,1,1,1
+access_openeducat_exam_type,access_openeducat_exam_type,model_openeducat_raport_exam_type,base.group_user,1,1,1,1
+access_raport_criteria,access_raport_criteria,model_openeducat_raport_criteria,base.group_user,1,1,1,1
+access_raport_achievement,access_raport_achievement,model_openeducat_raport_achievement,base.group_user,1,1,1,1
+access_raport_tujuan,access_raport_tujuan,model_openeducat_raport_tujuan,base.group_user,1,1,1,1
+access_raport,access_raport,model_openeducat_raport_raport,base.group_user,1,1,1,1
+access_raport_detail_user,access_raport_detail_user,model_openeducat_raport_raport_detail,base.group_user,1,1,1,1
+access_raport_user,access_raport_user,model_openeducat_raport_raport,base.group_user,1,1,1,1
+access_raport_score_user,access_raport_score_user,model_openeducat_raport_raport_score,base.group_user,1,1,1,1

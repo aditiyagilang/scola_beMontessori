@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Survey Records -->
+        <record id="survey_name_id1" model="survey.survey">
+            <field name="title">Yusra Zaki</field>
+        </record>
+
+        <record id="survey_name_id2" model="survey.survey">
+            <field name="title">Amell Arbab</field>
+        </record>
+
+        <record id="survey_name_id3" model="survey.survey">
+            <field name="title">Montaser</field>
+        </record>
+
+        <record id="survey_name_id4" model="survey.survey">
+            <field name="title">Samah Mohammed</field>
+        </record>
+
+        <!-- Survey Questions -->
+        <record id="survey_question_id1" model="survey.question">
+            <field name="survey_id" ref="survey_name_id1"/>
+            <field name="title">What is the best communication channel for sensitive information?</field>
+            <field name="question_type">simple_choice</field>
+        </record>
+
+        <record id="survey_question_id2" model="survey.question">
+            <field name="survey_id" ref="survey_name_id1"/>
+            <field name="title">How can you control access to channels?</field>
+            <field name="question_type">simple_choice</field>
+        </record>
+
+        <!-- Answer Choices -->
+        <record id="survey_answer_id1_1" model="survey.question.answer">
+            <field name="value">Public Channel</field>
+            <field name="question_id" ref="survey_question_id1"/>
+        </record>
+
+        <record id="survey_answer_id1_2" model="survey.question.answer">
+            <field name="value">Private Channel</field>
+            <field name="question_id" ref="survey_question_id1"/>
+        </record>
+
+        <record id="survey_answer_id2_1" model="survey.question.answer">
+            <field name="value">Changing channel access rights</field>
+            <field name="question_id" ref="survey_question_id2"/>
+        </record>
+
+        <record id="survey_answer_id2_2" model="survey.question.answer">
+            <field name="value">Auto-subscribe department</field>
+            <field name="question_id" ref="survey_question_id2"/>
+        </record>
+
+        <!-- Assets untuk Survey Timer -->
+        
+
+    </data>
+</odoo>

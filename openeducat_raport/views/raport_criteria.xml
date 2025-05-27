@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <!-- Form View -->
+    <record id="view_raport_criteria_form" model="ir.ui.view">
+        <field name="name">openeducat.raport.criteria.form</field>
+        <field name="model">openeducat_raport.criteria</field>
+        <field name="arch" type="xml">
+            <form string="Kriteria Ujian">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                    </group>
+                    <group>
+                        <field name="min_score"/>
+                        <field name="max_score"/>
+                    </group>
+                    <group>
+                        <field name="raport_prefix"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Tree View -->
+    <record id="view_raport_criteria_tree" model="ir.ui.view">
+        <field name="name">openeducat.raport.criteria.tree</field>
+        <field name="model">openeducat_raport.criteria</field>
+        <field name="arch" type="xml">
+            <tree string="Kriteria Ujian">
+                <field name="name"/>
+                <field name="min_score"/>
+                <field name="max_score"/>
+                <field name="raport_prefix"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Action -->
+    <record id="action_raport_criteria" model="ir.actions.act_window">
+        <field name="name">Kriteria Ujian</field>
+        <field name="res_model">openeducat_raport.criteria</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Tambahkan kriteria penilaian raport di sini.
+            </p>
+        </field>
+    </record>
+
+    <!-- Menu (opsional, atau bisa kamu gabung ke menu Raport utama) -->
+
+    
+</odoo>

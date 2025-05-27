@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="survey_question_form_inherit" model="ir.ui.view">
+        <field name="name">survey.question.form.inherit.max.score</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//field[@name='question_type']" position="after">
+                <group>
+
+                    <field name="max_score" placeholder="Enter max score"/>
+                </group>
+            </xpath>
+
+
+        </field>
+    </record>
+
+    <record id="survey_question_tree_inherit" model="ir.ui.view">
+        <field name="name">survey.question.tree.inherit.max.score</field>
+        <field name="model">survey.question</field>
+        <field name="inherit_id" ref="survey.survey_question_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='question_type']" position="after">
+                <field name="max_score"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

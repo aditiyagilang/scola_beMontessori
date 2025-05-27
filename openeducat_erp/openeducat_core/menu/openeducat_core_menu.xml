@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="action_openeducat_configuration" model="ir.actions.act_window">
+        <field name="name">Settings</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.config.settings</field>
+        <field name="view_mode">form</field>
+        <field name="target">inline</field>
+        <field name="context">{'module' : 'openeducat_core'}</field>
+    </record>
+
+    <!-- Seq 4-7 -->
+    <!-- Openeducat Menu -->
+
+    <!-- Courses -->
+    <menuitem id="menu_op_school_config_course" name="Courses" sequence="40"
+        web_icon="openeducat_core,static/description/icon_course-management.png"
+    />
+    <menuitem id="menu_op_course_sub" name="Courses" sequence="10" action="act_open_op_course_view"
+        parent="menu_op_school_config_course" groups="group_op_back_office_admin" />
+
+    <menuitem id="menu_op_subject_sub" name="Subjects" sequence="20"
+        parent="menu_op_school_config_course" action="act_open_op_subject_view"
+        groups="group_op_back_office_admin,openeducat_core.group_op_faculty" />
+
+    <menuitem id="menu_op_batch_sub" name="Batches" parent="menu_op_school_config_course"
+        sequence="30" action="act_open_op_batch_view" groups="group_op_back_office_admin" />
+
+    <menuitem id="menu_op_department_sub" name="Department" parent="menu_op_school_config_course"
+        sequence="40" action="act_open_op_department_view" groups="group_op_back_office_admin" />
+
+    <menuitem id="hr.menu_hr_root" name="Human Resources" sequence="50"
+        web_icon="openeducat_core,static/description/icon_human-resource.png"
+    />
+
+    <menuitem id="menu_academic_year" name="Academic Year" sequence="60"
+        action="act_op_academic_year_view"
+        web_icon="openeducat_core,static/description/icon_academic-year.png"
+    />
+
+
+    <menuitem id="menu_academic_term" name="Academic Term" sequence="70"
+        action="act_op_academic_term_view"
+        web_icon="openeducat_core,static/description/academic-term.png"
+    />
+
+    <!-- Activity Root -->
+    <menuitem id="menu_op_school_config_activity" name="Activities" sequence="80" />
+
+    <menuitem id="menu_op_school_config_general" name="General" sequence="90" />
+
+    <menuitem id="menu_op_category_sub" name="Categories" parent="menu_op_school_config_general"
+        sequence="40" action="act_open_op_category_view"
+        groups="openeducat_core.group_op_back_office_admin" />
+
+    <menuitem id="menu_op_general_main" name="Student Migration" sequence="30"
+        web_icon="openeducat_core,static/description/icon_student-migration.png" />
+
+    <!-- <menuitem id="menu_op_school_config" name="Configuration" sequence="50"
+        action="action_configuration_view"
+    /> -->
+
+
+    <menuitem name="Activity Management" id="openeducat_core.menu_op_school_config_activity"
+        sequence="80"
+        web_icon="openeducat_core,static/description/activity.png"
+    />
+
+    <menuitem name="Facility Management" id="openeducat_core.menu_op_school_config_general"
+        sequence="80"
+        web_icon="openeducat_core,static/description/facility.png"
+    />
+    <menuitem name="Website" id="website.menu_website_configuration" sequence="80"
+        web_icon="openeducat_core,static/description/website.png"
+    />
+    <menuitem name="Link Tracker" id="utm.menu_link_tracker_root" sequence="80"
+        web_icon="openeducat_core,static/description/link-tracker.png"
+    />
+    <menuitem name="Apps" id="base.menu_management" sequence="80"
+        web_icon="openeducat_core,static/description/apps.png"
+    />
+    <menuitem name="Apps" id="base.menu_management" sequence="80"
+        web_icon="openeducat_core,static/description/apps.png"
+    />
+
+    <menuitem name="Invoicing" id="account.menu_finance" sequence="90"
+        web_icon="openeducat_core,static/description/invoice.png"
+    />
+
+    <!-- Report Root -->
+    <menuitem name="Discuss" id="mail.menu_root_discuss" sequence="100"
+        web_icon="openeducat_core,static/description/discuss.png"
+    />
+
+    <menuitem name="Dashboards" id="spreadsheet_dashboard.spreadsheet_dashboard_menu_root"
+        sequence="110"
+        web_icon="openeducat_core,static/description/dashboard.png"
+    />
+    <menuitem name="Settings" id="base.menu_administration" sequence="120"
+        web_icon="openeducat_core,static/description/setting.png"
+    />
+
+    <!-- <menuitem name="Settings" id="openeducat_core.menu_openeducat_config" sequence="100"
+    web_icon="openeducat_core,static/description/setting.png"
+    /> -->
+
+
+</odoo>

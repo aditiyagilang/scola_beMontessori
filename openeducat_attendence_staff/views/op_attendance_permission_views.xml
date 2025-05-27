@@ -1,0 +1,52 @@
+<odoo>
+    <data>
+
+        <record id="view_op_attendance_permission_form" model="ir.ui.view">
+            <field name="name">op.attendance.permission.form</field>
+            <field name="model">op.attendance.permission</field>
+            <field name="arch" type="xml">
+                <form string="Attendance Permission">
+                    <sheet>
+                        <group>
+                            <field name="uid"/>
+                            <field name="types"/>
+                            <field name="reason"/>
+                            <field name="support" widget="image"/>
+                            <field name="filed_date" readonly="1"/>
+                            <field name="permission_start"/>
+                            <field name="permission_end"/>
+                            <field name="status"/>
+                        </group>
+                        <footer>
+                            <button name="action_approve" string="Approve" type="object" class="oe_highlight"/>
+                            <button name="action_reject" string="Reject" type="object" class="oe_secondary"/>
+                            <button name="unlink" string="Delete" type="object" class="oe_danger"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_op_attendance_permission_tree" model="ir.ui.view">
+            <field name="name">op.attendance.permission.tree</field>
+            <field name="model">op.attendance.permission</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="uid"/>
+                    <field name="types"/>
+                    <field name="filed_date" readonly="1"/>
+                    <field name="permission_start"/>
+                    <field name="permission_end"/>
+                    <field name="status" widget="statusbar" options="{'green': 'approved', 'yellow': 'filed', 'red': 'rejected'}"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_op_attendance_permission" model="ir.actions.act_window">
+            <field name="name">Attendance Permission</field>
+            <field name="res_model">op.attendance.permission</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+    </data>
+</odoo>
