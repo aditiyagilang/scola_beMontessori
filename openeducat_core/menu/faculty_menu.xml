@@ -10,7 +10,7 @@
                   name="Profile"
                   parent="openeducat_core.menu_op_faculty_root"
                   sequence="10"
-                  action="act_open_op_faculty_view_2"
+                  action="openeducat_core.act_open_op_faculty_view"
                   groups="openeducat_core.group_op_faculty"/>
 
     </data>

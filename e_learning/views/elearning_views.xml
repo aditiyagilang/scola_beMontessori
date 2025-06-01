@@ -1,0 +1,51 @@
+<odoo>
+    <data>
+        <record id="view_elearning_form" model="ir.ui.view">
+            <field name="name">e.learning.form</field>
+            <field name="model">e.learning</field>
+            <field name="arch" type="xml">
+                <form string="E-Learning">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="classroom_id"/>
+                            <field name="course_id"/>
+                            <field name="faculty_id"/>
+                        </group>
+                        <notebook>
+                            <page string="Learning Materials">
+                                <field name="material_ids">
+                                    <tree editable="bottom">
+                                        <field name="title"/>
+                                        <field name="status"/>
+                                        <field name="created_date"/>
+                                        <field name="implementation_date"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_elearning_tree" model="ir.ui.view">
+            <field name="name">e.learning.tree</field>
+            <field name="model">e.learning</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="classroom_id"/>
+                    <field name="course_id"/>
+                    <field name="faculty_id"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_elearning" model="ir.actions.act_window">
+            <field name="name">E-Learning</field>
+            <field name="res_model">e.learning</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

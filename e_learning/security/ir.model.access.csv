@@ -1,0 +1,13 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_e_learning_user,e_learning.user,model_e_learning,base.group_user,1,1,1,1
+access_e_learning_portal,e_learning.portal,model_e_learning,base.group_portal,1,0,0,0
+access_e_learning_admin,e_learning.admin,model_e_learning,base.group_system,1,1,1,1
+
+access_e_learning_material_user,e_learning.material.user,model_e_learning_material,base.group_user,1,1,1,1
+access_e_learning_material_portal,e_learning.material.portal,model_e_learning_material,base.group_portal,1,0,0,0
+access_e_learning_material_admin,e_learning.material.admin,model_e_learning_material,base.group_system,1,1,1,1
+
+access_e_learning_student_work_user,e_learning.student_work.user,model_e_learning_student_work,base.group_user,1,1,1,1
+access_e_learning_student_work_portal,e_learning.student_work.portal,model_e_learning_student_work,base.group_portal,1,0,0,0
+access_e_learning_student_work_admin,e_learning.student_work.admin,model_e_learning_student_work,base.group_system,1,1,1,1

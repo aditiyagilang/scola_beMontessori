@@ -8,8 +8,8 @@
             <field name="arch" type="xml">
                 <tree string="Sessions">
                     <field name="faculty_id"/>
-                    <field name="batch_id"/>
-                    <field name="subject_id"/>
+                    <!-- <field name="batch_id"/> -->
+                    <!-- <field name="subject_id"/> -->
                     <field name="classroom_id"/>
                     <field name="lesson_schedule_id"/>
                     <field name="start_datetime"/>
@@ -62,12 +62,12 @@
                                 <field name="faculty_id" options='{"no_open": True}'/>
                                 <field name="lesson_schedule_id"/>
                                 <field name="course_id" options='{"no_open": True}'/>
-                                <field name="subject_id"/>
+                                <!-- <field name="subject_id"/> -->
                                 <field name="type"/>
                             </group>
                             <group>
-                                <field name="batch_id" options='{"no_open": True}'
-                                    context="{'course_id': course_id,'get_parent_batch':1}"/>
+                                <!-- <field name="batch_id" options='{"no_open": True}' -->
+                                  
                                 <field name="classroom_id"/>
                                 <label for="start_datetime" string="Session Time"/>
                                 <div class="o_row">
@@ -99,8 +99,8 @@
                 <search string="Sessions">
                     <field name="faculty_id" select="True"/>
                     <field name="course_id" select="True"/>
-                    <field name="batch_id" select="True"/>
-                    <field name="subject_id" select="True"/>
+                    <!-- <field name="batch_id" select="True"/> -->
+                    <!-- <field name="subject_id" select="True"/> -->
                     <field name="lesson_schedule_id" select="True"/>
                     <field name="start_datetime" select="True"/>
                     <field name="end_datetime" select="True"/>
@@ -120,10 +120,9 @@
                                 domain="[]" context="{'group_by':'faculty_id'}"/>
                         <filter string="Course" name="group_by_session_course_id"
                                 domain="[]" context="{'group_by':'course_id'}"/>
-                        <filter string="Batch" name="group_by_session_batch_id"
-                                domain="[]" context="{'group_by':'batch_id'}"/>
-                        <filter string="Subject" name="group_by_session_subject_id"
-                                domain="[]" context="{'group_by':'subject_id'}"/>
+                      
+                        <!-- <filter string="Subject" name="group_by_session_subject_id"
+                                domain="[]" context="{'group_by':'subject_id'}"/> -->
                         <filter string="State" name="group_by_session_state"
                                 domain="[]" context="{'group_by':'state'}"/>
                     </group>
@@ -149,11 +148,11 @@
                           color="course_id" date_stop="end_datetime">
                     <field name="faculty_id"/>
                     <field name="course_id"/>
-                    <field name="batch_id"/>
+                    <!-- <field name="batch_id"/> -->
                     <field name="lesson_schedule_id"/>
                     <field name="start_datetime"/>
                     <field name="end_datetime"/>
-                    <field name="subject_id"/>
+                    <!-- <field name="subject_id"/> -->
                     <field name="type"/>
                 </calendar>
             </field>
@@ -189,18 +188,15 @@
                                             <b>Faculty:</b>
                                             <field name="faculty_id"/>
                                         </li>
-                                        <li t-if="record.subject_id.raw_value">
+                                        <!-- <li t-if="record.subject_id.raw_value">
                                             <b>Subject:</b>
                                             <field name="subject_id"/>
-                                        </li>
+                                        </li> -->
                                         <li t-if="record.course_id.raw_value">
                                             <b>Course:</b>
                                             <field name="course_id"/>
                                         </li>
-                                        <li t-if="record.batch_id.raw_value">
-                                            <b>Batch:</b>
-                                            <field name="batch_id"/>
-                                        </li>
+                                       
                                         
                                         <li t-if="record.start_datetime.raw_value">
                                             <b>Start:</b>
@@ -235,8 +231,8 @@
                     <field name="name"/>
                     <field name="faculty_id" type="col"/>
                     <field name="course_id"/>
-                    <field name="batch_id"/>
-                    <field name="subject_id"/>
+                    <!-- <field name="batch_id"/> -->
+                    <!-- <field name="subject_id"/> -->
                     <field name="classroom_id"/>
                     <field name="start_datetime" type="row"/>
                     <field name="end_datetime"/>

@@ -18,7 +18,6 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ###############################################################################
-
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
 
@@ -32,6 +31,26 @@ class OpParent(models.Model):
     mobile = fields.Char(string='Mobile', related='name.mobile')
     active = fields.Boolean(default=True)
     relationship_id = fields.Many2one('op.parent.relationship', 'Relation with Student', required=True)
+    place_of_birth = fields.Char("Tempat Lahir")
+    birth_date = fields.Date("Tanggal Lahir")
+    phone = fields.Char("No Telepon")
+    email = fields.Char("Email")
+    address = fields.Text("Alamat")
+    gender = fields.Selection([
+        ('m', 'Laki-laki'),
+        ('f', 'Perempuan')
+    ], string="Jenis Kelamin")
+    religion = fields.Selection([
+        ('islam', 'Islam'),
+        ('kristen', 'Kristen'),
+        ('katolik', 'Katolik'),
+        ('hindu', 'Hindu'),
+        ('buddha', 'Buddha'),
+        ('khonghucu', 'Khonghucu'),
+    ], string="Agama")
+    no_kk = fields.Char("Nomor Kartu Keluarga")
+    photo = fields.Binary("Foto")
+    photo_filename = fields.Char("Nama File Foto")
 
     _sql_constraints = [(
         'unique_parent',
@@ -129,76 +148,39 @@ class OpParent(models.Model):
                 record.name.user_id = user_id
 
 
+
+
 class OpStudent(models.Model):
     _inherit = "op.student"
 
-    parent_ids = fields.Many2many('op.parent', string='Parent')
+    parent_ids = fields.Many2many('op.parent', string='Orang Tua')
 
     @api.model_create_multi
-    def create(self, vals):
-        res = super(OpStudent, self).create(vals)
-        for values in vals:
-            if values.get('parent_ids', False):
-                for parent_id in res.parent_ids:
-                    if parent_id.user_id:
-                        user_ids = [student.user_id.id for student
-                                    in parent_id.student_ids if student.user_id]
-                        parent_id.user_id.child_ids = [(6, 0, user_ids)]
-        return res
+    def create(self, vals_list):
+        records = super().create(vals_list)
+        return records
 
     def write(self, vals):
-        res = super(OpStudent, self).write(vals)
-        if vals.get('parent_ids', False):
-            user_ids = []
-            if self.parent_ids:
-                for parent in self.parent_ids:
-                    if parent.user_id:
-                        user_ids = [parent.user_id.id for parent in parent.student_ids
-                                    if parent.user_id]
-                        parent.user_id.child_ids = [(6, 0, user_ids)]
-            else:
-                user_ids = self.env['res.users'].search([
-                    ('child_ids', 'in', self.user_id.id)])
-                for user_id in user_ids:
-                    child_ids = user_id.child_ids.ids
-                    child_ids.remove(self.user_id.id)
-                    user_id.child_ids = [(6, 0, child_ids)]
-        if vals.get('user_id', False):
-            for parent_id in self.parent_ids:
-                child_ids = parent_id.user_id.child_ids.ids
-                child_ids.append(vals['user_id'])
-                parent_id.name.user_id.child_ids = [(6, 0, child_ids)]
-        self.env.registry.clear_cache()
-        return res
+        return super().write(vals)
 
     def unlink(self):
-        for record in self:
-            if record.parent_ids:
-                for parent_id in record.parent_ids:
-                    child_ids = parent_id.user_id.child_ids.ids
-                    child_ids.remove(record.user_id.id)
-                    parent_id.name.user_id.child_ids = [(6, 0, child_ids)]
-        return super(OpStudent, self).unlink()
+        return super().unlink()
 
     def get_parent(self):
-        action = self.env.ref('openeducat_parent.'
-                              'act_open_op_parent_view').read()[0]
+        action = self.env.ref('openeducat_parent.act_open_op_parent_view').read()[0]
         action['domain'] = [('student_ids', 'in', self.ids)]
         return action
-
 
 class OpSubjectRegistration(models.Model):
     _inherit = "op.subject.registration"
 
     @api.model_create_multi
-    def create(self, vals):
+    def create(self, vals_list):
         if self.env.user.child_ids:
-            raise ValidationError(_('Invalid Action!\n Parent can not \
-            create Subject Registration!'))
-        return super(OpSubjectRegistration, self).create(vals)
+            raise ValidationError(_('Akses Ditolak!\nOrang tua tidak dapat membuat Pendaftaran Mata Pelajaran.'))
+        return super().create(vals_list)
 
     def write(self, vals):
         if self.env.user.child_ids:
-            raise ValidationError(_('Invalid Action!\n Parent can not edit \
-            Subject Registration!'))
-        return super(OpSubjectRegistration, self).write(vals)
+            raise ValidationError(_('Akses Ditolak!\nOrang tua tidak dapat mengubah Pendaftaran Mata Pelajaran.'))
+        return super().write(vals)

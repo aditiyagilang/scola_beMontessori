@@ -10,9 +10,9 @@
                 <div class="content-group"
                      invisible="module_openeducat_timetable == False">
                     <div class="mt16">
-                        <div class="o_setting_left_pane">
+                        <!-- <div class="o_setting_left_pane">
                             <field name="is_batch_constraint"/>
-                        </div>
+                        </div> -->
                         <div class="o_setting_right_pane">
                             <label for="is_batch_constraint"/>
                             <div class="text-muted">
@@ -22,9 +22,9 @@
                         </div>
                     </div>
                     <div class="mt16">
-                        <div class="o_setting_left_pane">
+                        <!-- <div class="o_setting_left_pane">
                             <field name="is_batch_and_subject_constraint"/>
-                        </div>
+                        </div> -->
                         <div class="o_setting_right_pane">
                             <label for="is_batch_and_subject_constraint"/>
                             <div class="text-muted">

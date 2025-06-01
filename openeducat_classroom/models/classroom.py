@@ -19,7 +19,10 @@
 #
 ###############################################################################
 
-from odoo import models, fields, api
+
+
+from odoo import models, fields, api, _
+from odoo.exceptions import ValidationError
 
 
 class OpClassroom(models.Model):
@@ -28,19 +31,31 @@ class OpClassroom(models.Model):
 
     name = fields.Char('Name', size=16, required=True)
     code = fields.Char('Code', size=16, required=True)
-    batch_ids = fields.One2many('op.batch', 'classroom_id',  string='Batches')
+
+    course_ids = fields.One2many('op.course', 'classroom_id', string='Courses')
     faculty_id = fields.Many2one('op.faculty', string="Faculty")
     capacity = fields.Integer(string='No of Person')
+
     facilities = fields.One2many('op.facility.line', 'classroom_id', string='Facility Lines')
     asset_line = fields.One2many('op.asset', 'asset_id', string='Asset')
+
+    min_age = fields.Integer(string='Minimum Age')
+    max_age = fields.Integer(string='Maximum Age')
+
+    status = fields.Selection([
+        ('active', 'Active'),
+        ('not_active', 'Not Active')
+    ], string='Status', default='active', required=True)
+
     active = fields.Boolean(default=True)
+
     _sql_constraints = [
-        ('unique_classroom_code',
-         'unique(code)', 'Code should be unique per classroom!')]
-    @api.onchange('batch_ids')
-    def _onchange_batch_ids(self):
-        """Update students in batch automatically based on classroom."""
-        for classroom in self:
-            for batch in classroom.batch_ids:
-                students = self.env['op.student'].search([('classroom_id', '=', classroom.id)])
-                batch.student_ids = [(6, 0, students.ids)]
+        ('unique_classroom_code', 'unique(code)', 'Code should be unique per classroom!')
+    ]
+
+
+    @api.constrains('min_age', 'max_age')
+    def _check_age_range(self):
+        for record in self:
+            if record.min_age and record.max_age and record.min_age > record.max_age:
+                raise ValidationError(_("Minimum age cannot be greater than maximum age."))

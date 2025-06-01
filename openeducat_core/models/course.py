@@ -36,6 +36,8 @@ class OpCourse(models.Model):
          ('CWA', 'CWA'), ('CCE', 'CCE')],
         'Evaluation Type', default="normal", required=False)
     subject_ids = fields.Many2many('op.subject', string='Subject(s)')
+    faculty_id = fields.Many2one('op.faculty', string='Guru Pengampu')
+    classroom_id = fields.Many2one('op.classroom', string='Classroom')
     max_unit_load = fields.Float("Maximum Unit Load")
     min_unit_load = fields.Float("Minimum Unit Load")
     department_id = fields.Many2one(

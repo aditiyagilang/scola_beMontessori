@@ -10,7 +10,7 @@
                     <field name="name"/>
                     <field name="code"/>
                     <field name="course_id"/>
-                    <field name="batch_id"/>
+                    <!-- <field name="batch_id"/> -->
                 </tree>
             </field>
         </record>
@@ -35,8 +35,8 @@
                             </group>
                             <group>
                                 <field name="code"/>
-                                <field name="batch_id"
-                                       context="{'course_id': course_id,'get_parent_batch':1}"/>
+                                <!-- <field name="batch_id"
+                                       context="{'course_id': course_id,'get_parent_batch':1}"/> -->
                                 <!-- <field name="faculty_id"/> -->
                             </group>
                         </group>
@@ -68,8 +68,8 @@
                 <search string="Attendance Register">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="course_id"/>
-                    <field name="batch_id"/>
+                    <!-- <field name="course_id"/> -->
+                    <!-- <field name="batch_id"/> -->
                     <filter string="Archived" name="inactive"
                             domain="[('active', '=', False)]"/>
                     <newline/>
@@ -80,8 +80,8 @@
                                 domain="[]" context="{'group_by':'code'}"/>
                         <filter string="Course" name="group_by_attendance_register_course"
                                 domain="[]" context="{'group_by':'course_id'}"/>
-                        <filter string="Batch" name="group_by_attendance_register_batch"
-                                domain="[]" context="{'group_by':'batch_id'}"/>
+                        <!-- <filter string="Batch" name="group_by_attendance_register_batch"
+                                domain="[]" context="{'group_by':'batch_id'}"/> -->
                     </group>
                 </search>
             </field>

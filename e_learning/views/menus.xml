@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!-- Root menu -->
+        <menuitem id="menu_elearning_root" name="E-Learning" sequence="10"/>
+
+        <!-- Elearning header menu -->
+        <menuitem id="menu_elearning_main" name="E-Learning Sessions" parent="menu_elearning_root" action="action_elearning" sequence="20"/>
+
+        <!-- Learning material menu -->
+        <menuitem id="menu_learning_material_main" name="Learning Materials" parent="menu_elearning_root" action="action_learning_material" sequence="30"/>
+    </data>
+</odoo>

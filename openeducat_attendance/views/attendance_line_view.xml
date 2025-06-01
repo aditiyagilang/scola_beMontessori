@@ -17,7 +17,7 @@
                     <field name="remark" optional="show"/>
                     <field name="attendance_date"/>
                     <field name="course_id" optional="show"/>
-                    <field name="batch_id" optional="show"/>
+                    <!-- <field name="batch_id" optional="show"/> -->
                 </tree>
             </field>
         </record>
@@ -39,12 +39,12 @@
                                 <field name="present"/>
                                 <field name="excused"/>
                                 <field name="remark"/>
-                                <field name="batch_id" widget="selection"/>
+                                <!-- <field name="batch_id" widget="selection"/> -->
                                 <field name="attendance_date"/>
                             </group>
                             <group>
-                                <field name="student_id"
-                                       domain="[('course_detail_ids.course_id','=',course_id),('course_detail_ids.batch_id','=',batch_id)]"/>
+                                <!-- <field name="student_id"
+                                       domain="[('course_detail_ids.course_id','=',course_id),('course_detail_ids.batch_id','=',batch_id)]"/> -->
                                 <field name="attendance_type_id" options='{"no_open": True}'/>
                                 <field name="absent"/>
                                 <field name="late"/>
@@ -82,8 +82,8 @@
                                 domain="[]" context="{'group_by':'attendance_id'}"/>
                         <filter string="Course" name="group_by_attendance_course"
                                 domain="[]" context="{'group_by':'course_id'}"/>
-                        <filter string="Batch" name="group_by_attendance_batch"
-                                domain="[]" context="{'group_by':'batch_id'}"/>
+                        <!-- <filter string="Batch" name="group_by_attendance_batch"
+                                domain="[]" context="{'group_by':'batch_id'}"/> -->
                         <filter string="Student" name="group_by_attendance_student"
                                 domain="[]" context="{'group_by':'student_id'}"/>
                         <filter string="Present ?" name="group_by_attendance_present"
@@ -106,7 +106,7 @@
                     <field name="present"/>
                     <field name="remark"/>
                     <field name="course_id"/>
-                    <field name="batch_id"/>
+                    <!-- <field name="batch_id"/> -->
                     <field name="attendance_date"/>
                     <field name="register_id" type="col"/>
                 </pivot>

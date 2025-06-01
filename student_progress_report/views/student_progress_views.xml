@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- ✅ Form View -->
+    <record id="view_student_progress_form" model="ir.ui.view">
+        <field name="name">student.progress.report.form</field>
+        <field name="model">student.progress.report</field>
+        <field name="arch" type="xml">
+            <form string="Student Progress Report">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="description"/>
+                        <field name="date"/>
+                        <field name="student_id"/>
+                    </group>
+                    <group>
+                        <field name="student_work_ids">
+                            <tree editable="bottom">
+                                <field name="description"/>
+                                <field name="file_name" readonly="0"/>
+                                <field name="score"/>
+                            </tree>
+                        </field>
+                    </group>
+
+
+
+                    <notebook>
+                        <page string="Development Notes">
+                            <group>
+                                <field name="cognitive_notes"/>
+                                <field name="emotional_notes"/>
+                                <field name="language_notes"/>
+                                <field name="physical_notes"/>
+                                <field name="social_notes"/>
+                            </group>
+                        </page>
+                        <page string="Activity Photos">
+                            <field name="activity_photo_ids">
+                                <tree editable="bottom">
+                                    <field name="photo" filename="filename"/>
+                                    <field name="filename"/>
+                                    <field name="description"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ✅ Tree View -->
+    <record id="view_student_progress_tree" model="ir.ui.view">
+        <field name="name">student.progress.report.tree</field>
+        <field name="model">student.progress.report</field>
+        <field name="arch" type="xml">
+            <tree string="Student Progress Reports">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- ✅ Search View -->
+    <record id="view_student_progress_search" model="ir.ui.view">
+        <field name="name">student.progress.report.search</field>
+        <field name="model">student.progress.report</field>
+        <field name="arch" type="xml">
+            <search string="Search Student Progress">
+                <field name="name"/>
+                <field name="student_id"/>
+                <field name="date"/>
+            </search>
+        </field>
+    </record>
+</odoo>

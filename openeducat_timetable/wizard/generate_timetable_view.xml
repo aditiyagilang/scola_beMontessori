@@ -12,9 +12,9 @@
                     <field name="session_start_time" widget="float_time"/>
                     <field name="session_end_time" widget="float_time"/>
                     <field name="faculty_id"/>
-                    <field name="subject_id"/>
+                    <!-- <field name="subject_id"/> -->
                     <!-- <field name="classroom_id"/> -->
-                    <field name="batch_id"/>
+                    <!-- <field name="batch_id"/> -->
                   
                 </tree>
             </field>
@@ -32,9 +32,9 @@
                         <field name="session_start_time" widget="float_time"/>
                         <field name="session_end_time" widget="float_time"/>
                         <field name="faculty_id"/>
-                        <field name="subject_id"/>
+                        <!-- <field name="subject_id"/> -->
                         <!-- <field name="classroom_id"/> -->
-                        <field name="batch_id"/>
+                        <!-- <field name="batch_id"/> -->
                     </group>
                 </form>
             </field>

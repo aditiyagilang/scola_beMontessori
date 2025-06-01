@@ -14,9 +14,7 @@
                                 <a type="open">
                                     <div class="o_kanban_image" style="background:#e6e5e6;">
                                         <t t-if="record.image_1920.value">
-                                            <img
-                                                t-att-src="kanban_image('op.student', 'image_1920', record.id.raw_value)"
-                                                alt="Student" />
+                                            <img t-att-src="kanban_image('op.student', 'image_1920', record.id.raw_value)" alt="Student" />
                                         </t>
                                         <t t-if="!record.image_1920.value">
                                             <img src="/base/static/img/avatar.png" alt="Student" />
@@ -76,7 +74,7 @@
                     <field name="emergency_contact" />
                     <field name="nationality" />
                     <field name="classroom_id" />
-                     <field name="religion"/>
+                    <field name="religion"/>
                     <!-- <field name="lang"/> -->
                 </tree>
             </field>
@@ -88,23 +86,15 @@
             <field name="priority" eval="8" />
             <field name="arch" type="xml">
                 <form string="Student">
-                    <header>
-                        <button type="object" name="create_student_user"
-                            string="Create Student User"
-                            class="oe_highlight"
-                            groups="openeducat_core.group_op_back_office_admin"
-                            invisible="user_id != False" />
-                    </header>
+
                     <sheet>
                         <div name="button_box" class="oe_button_box">
                         </div>
                         <field name="active" invisible="1" />
-                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger"
-                            invisible="active == True" />
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="active == True" />
                         <div style="width:100%;" class="row align-items-center">
                             <div class="col-4 col-lg-2" style="text-align-last: center;">
-                                <field name="image_1920" widget="image" class="oe_left oe_avatar"
-                                    style="margin-right: -2px !important;" />
+                                <field name="image_1920" widget="image" class="oe_left oe_avatar" style="margin-right: -2px !important;" />
                             </div>
                             <div class="mb16 col-8 col-lg-10 px-0">
                                 <div class="row">
@@ -112,13 +102,11 @@
                                         <field name="title" placeholder="Title"/>
                                     </h2> -->
                                     <h2 class="col-12 col-lg-10">
-                                        <field name="name" placeholder="Name" required="1"
-                                            invisible="1" />
+                                        <field name="name" placeholder="Name" required="1" invisible="1" />
                                         <table>
                                             <tr>
                                                 <td style="padding-right:10px;">
-                                                    <field name="full_name" required="1"
-                                                        placeholder="Full Name" />
+                                                    <field name="full_name" required="1" placeholder="Full Name" />
                                                 </td>
                                                 <!-- <td style="padding-right:10px;">
                                                     <field name="middle_name" placeholder="Middle Name"/>
@@ -136,10 +124,15 @@
                             <page name="personal_information" string="Personal Information">
                                 <group name="personal_detail">
                                     <group>
-                                        <field name="nid" required="1" />
-                                        <field name="gender" required="0" />
-                                        <field name="place_of_birth" required="0" />
-                                        <field name="birth_date" required="0" />
+                                        <field name="nid" />
+                                        <field name="gender" required="1" />
+                                        <field name="place_of_birth" />
+                                        <field name="birth_date" required="1" />
+                                        <field name="no_kk" />
+
+                                        <field name="kia_file" filename="kia_filename" />
+                                        <field name="akta_file" filename="akta_filename" />
+
                                         <label for="type" />
                                         <div name="div_type">
                                             <field class="oe_inline" name="type" />
@@ -149,23 +142,15 @@
                                             <field name="street" placeholder="Street..." />
                                             <field name="street2" placeholder="Street2" />
                                             <div class="address_format">
-                                                <field name="city" placeholder="City"
-                                                    style="width: 40%" />
-                                                <field name="state_id" class="oe_no_button"
-                                                    placeholder="State"
-                                                    style="width: 37%"
-                                                    options="{&quot;no_open&quot;: True}" />
-                                                <field name="zip" placeholder="ZIP"
-                                                    style="width: 20%" />
+                                                <field name="city" placeholder="City" style="width: 40%" />
+                                                <field name="state_id" class="oe_no_button" placeholder="State" style="width: 37%" options="{'no_open': True}" />
+                                                <field name="zip" placeholder="ZIP" style="width: 20%" />
                                             </div>
-                                            <field name="country_id" placeholder="Country"
-                                                class="oe_no_button"
-                                                options="{&quot;no_open&quot;: True}" />
+                                            <field name="country_id" placeholder="Country" class="oe_no_button" options="{'no_open': True}" />
                                         </div>
-                                        <field name="emergency_contact"
-                                            context="{'show_address': 1}"
-                                            options="{&quot;always_reload&quot;: True}" />
+                                        <field name="emergency_contact" context="{'show_address': 1}" options="{'always_reload': True}" />
                                     </group>
+
                                     <group>
                                         <field name="email" required="0" />
                                         <field name="mobile" required="0" />
@@ -175,7 +160,7 @@
                                         <!-- <field name="nationality"/> -->
                                         <!-- <field name="visa_info"/> -->
                                         <field name="category_id" />
-                                          <field name="religion"/>
+                                        <field name="religion"/>
                                         <field name="user_id" string="User" readonly="1" />
                                         <field name="partner_id" placeholder="Partner" required="0" />
                                     </group>
@@ -189,8 +174,7 @@
                         </notebook>
                     </sheet>
                     <div class="oe_chatter">
-                        <field name="message_follower_ids" widget="mail_followers"
-                            groups="base.group_user" />
+                        <field name="message_follower_ids" widget="mail_followers" groups="base.group_user" />
                         <field name="message_ids" widget="mail_thread" />
                         <field name="activity_ids" widget="mail_activity" />
                     </div>
@@ -208,12 +192,9 @@
                     <field name="blood_group" />
                     <newline />
                     <group expand="0" string="Group By...">
-                        <filter name="blood_group" string="Blood Group"
-                            domain="[]" context="{'group_by':'blood_group'}" />
-                        <filter name="nationality" string="Nationality"
-                            domain="[]" context="{'group_by':'nationality'}" />
-                        <filter name="language" string="Language"
-                            domain="[]" context="{'group_by':'lang'}" />
+                        <filter name="blood_group" string="Blood Group" domain="[]" context="{'group_by':'blood_group'}" />
+                        <filter name="nationality" string="Nationality" domain="[]" context="{'group_by':'nationality'}" />
+                        <filter name="language" string="Language" domain="[]" context="{'group_by':'lang'}" />
                         <filter string="Archived" name="inactive" domain="[('active', '=', False)]" />
                     </group>
                 </search>

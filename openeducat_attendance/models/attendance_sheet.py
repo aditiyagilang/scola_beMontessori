@@ -21,7 +21,6 @@
 
 from odoo import models, fields, api
 
-
 class OpAttendanceSheet(models.Model):
     _name = "op.attendance.sheet"
     _inherit = ["mail.thread"]
@@ -34,9 +33,6 @@ class OpAttendanceSheet(models.Model):
     )
     course_id = fields.Many2one(
         "op.course", related="register_id.course_id", store=True, readonly=True
-    )
-    batch_id = fields.Many2one(
-        "op.batch", "Batch", related="register_id.batch_id", store=True, readonly=True
     )
     session_id = fields.Many2one("op.session", "Session")
     attendance_date = fields.Date(
@@ -83,9 +79,8 @@ class OpAttendanceSheet(models.Model):
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:
-            sheet = self.env["ir.sequence"].next_by_code("op.attendance.sheet")
-            register = (
-                self.env["op.attendance.register"].browse(vals["register_id"]).code
-            )
-            vals["name"] = register + sheet
-        return super(OpAttendanceSheet, self).create(vals_list)
+            sheet_code = self.env["ir.sequence"].next_by_code("op.attendance.sheet")
+            register_code = self.env["op.attendance.register"].browse(vals["register_id"]).code
+            vals["name"] = f"{register_code}{sheet_code}"
+        return super().create(vals_list)
+

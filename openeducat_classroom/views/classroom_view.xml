@@ -10,7 +10,7 @@
                 <tree string="Classroom">
                     <field name="name"/>
                     <field name="code"/>
-                    <field name="batch_ids"/>
+                    <field name="course_ids"/>
                     <field name="faculty_id"/>
                     <field name="capacity"/>
                     <field name="facilities"/>
@@ -41,8 +41,8 @@
                         </group>
                         <notebook>
                             <!-- Page for Batch IDs -->
-                            <page name="batches" string="Batches">
-                                <field name="batch_ids" widget="many2many_tags" options="{'no_create': True}" />
+                            <page name="courses" string="Batches">
+                                <field name="course_ids" widget="many2many_tags" options="{'no_create': True}" />
                             </page>
                             <!-- Facilities Page -->
                             <page name="facilities" string="Facilities">

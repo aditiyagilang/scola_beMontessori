@@ -1,0 +1,18 @@
+<odoo>
+    <!-- Action -->
+    <record id="action_student_progress_report" model="ir.actions.act_window">
+        <field name="name">Student Progress Reports</field>
+        <field name="res_model">student.progress.report</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Root Menu (if needed) -->
+    <menuitem id="menu_student_progress_root" name="Student Progress" sequence="1"/>
+
+    <!-- Submenu + Action -->
+    <menuitem id="menu_student_progress_main"
+              name="Progress Reports"
+              parent="menu_student_progress_root"
+              action="action_student_progress_report"
+              sequence="10"/>
+</odoo>

@@ -16,9 +16,9 @@ class OpAcademicYear(models.Model):
     _name = 'op.academic.year'
     _description = "Academic Year"
 
-    name = fields.Char('Name', required=True)
-    start_date = fields.Date('Start Date', required=True)
-    end_date = fields.Date('End Date', required=True)
+    name = fields.Char('Name')
+    start_date = fields.Date('Start Date')
+    end_date = fields.Date('End Date')
 
     term_structure = fields.Selection([('two_sem', 'Two Semesters'),
                                        ('two_sem_qua', 'Two Semesters '
@@ -32,8 +32,7 @@ class OpAcademicYear(models.Model):
                                                       ' subdivided by Quarters'),
                                        ('others', 'Other(overlapping terms,'
                                                   ' custom schedules)')],
-                                      string='Term Structure', default='two_sem',
-                                      required=True)
+                                      string='Term Structure', default='two_sem')
     academic_term_ids = fields.One2many('op.academic.term', 'academic_year_id',
                                         string='Academic Terms')
     create_boolean = fields.Boolean()

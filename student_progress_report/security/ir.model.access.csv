@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_student_progress_report_user,student_progress.report.user,model_student_progress_report,base.group_user,1,1,1,1
+access_student_progress_report_photo_user,student_progress.report.photo.user,model_student_progress_report_photo,base.group_user,1,1,1,1
+access_student_progress_report_admin,student_progress.report.admin,model_student_progress_report,base.group_system,1,1,1,1
+access_student_progress_report_photo_admin,student_progress.report.photo.admin,model_student_progress_report_photo,base.group_system,1,1,1,1

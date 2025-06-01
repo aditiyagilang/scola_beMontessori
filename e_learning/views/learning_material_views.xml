@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+        <record id="view_learning_material_form" model="ir.ui.view">
+            <field name="name">e.learning.material.form</field>
+            <field name="model">e.learning.material</field>
+            <field name="arch" type="xml">
+                <form string="Learning Material">
+                    <sheet>
+                        <group>
+                            <field name="elearning_id"/>
+                            <field name="title"/>
+                            <field name="status"/>
+                            <field name="created_date"/>
+                            <field name="implementation_date"/>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                            <field name="file_data" filename="file_name"/>
+                            <field name="file_name"/>
+                            <field name="file_type"/>
+                        </group>
+                        <notebook>
+                            <page string="Student Works">
+                                <field name="student_work_ids">
+                                    <tree editable="bottom">
+                                        <field name="student_id"/>
+                                        <field name="submitted_at"/>
+                                        <field name="score"/>
+                                        <field name="file_name"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_learning_material_tree" model="ir.ui.view">
+            <field name="name">e.learning.material.tree</field>
+            <field name="model">e.learning.material</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="elearning_id"/>
+                    <field name="title"/>
+                    <field name="status"/>
+                    <field name="created_date"/>
+                    <field name="implementation_date"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_learning_material" model="ir.actions.act_window">
+            <field name="name">Learning Materials</field>
+            <field name="res_model">e.learning.material</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>
