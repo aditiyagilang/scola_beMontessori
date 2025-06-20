@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_montessori_achievement_user,Montessori Achievement,model_montessori_achievement,base.group_user,1,1,1,1
+access_montessori_observation_user,Montessori Observation,model_montessori_observation,base.group_user,1,1,1,1

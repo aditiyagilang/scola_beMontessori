@@ -1,0 +1,60 @@
+<odoo>
+
+    <!-- Montessori Achievement Form/List -->
+    <record id="view_montessori_achievement_tree" model="ir.ui.view">
+        <field name="name">montessori.achievement.tree</field>
+        <field name="model">montessori.achievement</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="area"/>
+                <field name="title"/>
+                <field name="sub_achievement"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_montessori_achievement_form" model="ir.ui.view">
+        <field name="name">montessori.achievement.form</field>
+        <field name="model">montessori.achievement</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="area"/>
+                    <field name="title"/>
+                    <field name="sub_achievement"/>
+                </group>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_montessori_achievement" model="ir.actions.act_window">
+        <field name="name">Montessori Achievements</field>
+        <field name="res_model">montessori.achievement</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Student List -->
+    <record id="view_op_student_tree_montessori" model="ir.ui.view">
+        <field name="name">op.student.tree.montessori</field>
+        <field name="model">op.student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="full_name"/>
+                <field name="gender"/>
+                <field name="birth_date"/>
+                <field name="sic"/>
+                <field name="classroom_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_montessori_student_list" model="ir.actions.act_window">
+        <field name="name">Student Observations</field>
+        <field name="res_model">op.student</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[]</field>
+    </record>
+
+
+
+</odoo>

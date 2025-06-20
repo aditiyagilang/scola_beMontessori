@@ -7,9 +7,18 @@ class StudentWork(models.Model):
     material_id = fields.Many2one('e.learning.material', string='Learning Material', required=True, ondelete='cascade')
     student_id = fields.Many2one('op.student', string='Student', required=True)
     description = fields.Text(string='Description')
-    score = fields.Float(string='Score')
+    score = fields.Selection(
+        selection=[
+            ('1', 'Kurang'),
+            ('2', 'Cukup'),
+            ('3', 'Baik'),
+            ('4', 'Sangat Baik'),
+            ('5', 'Istimewa')
+        ],
+        string='Score',
+        required=True
+    )
     submitted_at = fields.Datetime(string='Submitted At', default=fields.Datetime.now)
-
     file_data = fields.Binary(string='File')
     file_name = fields.Char(string='File Name')
     file_type = fields.Char(string='File Type')
@@ -18,4 +27,3 @@ class StudentWork(models.Model):
         string='Progress Report',
         ondelete='set null'
     )
-    

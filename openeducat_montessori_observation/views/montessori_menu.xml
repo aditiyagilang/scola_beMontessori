@@ -1,0 +1,8 @@
+<odoo>
+  <menuitem id="menu_montessori_root" name="Montessori" sequence="10"/>
+
+  <menuitem id="menu_montessori_config" name="Configuration" parent="menu_montessori_root" sequence="1"/>
+  <menuitem id="menu_montessori_achievement" name="Achievements" parent="menu_montessori_config" action="action_montessori_achievement" sequence="10"/>
+
+  <menuitem id="menu_montessori_observation" name="Observations" parent="menu_montessori_root" action="action_montessori_student_list" sequence="20"/>
+</odoo>

@@ -1,0 +1,25 @@
+<odoo>
+    <record id="view_op_student_form_inherit_montessori" model="ir.ui.view">
+        <field name="name">op.student.form.montessori.observation</field>
+        <field name="model">op.student</field>
+        <field name="inherit_id" ref="openeducat_core.view_op_student_form"/>
+        <field name="arch" type="xml">
+            <notebook position="inside">
+                <page string="Montessori Observations">
+                    <field name="montessori_observation_ids">
+                        <tree editable="bottom">
+                            <field name="achievement_id"/>
+                            <field name="is_repeated"/>
+                            <field name="notes"/>
+                            <field name="photo_filename"/>
+                        </tree>
+                    </field>
+                </page>
+                <page string="Montessori Summary">
+                    <field name="observation_summary_json" widget="text" readonly="1"/>
+                </page>
+
+            </notebook>
+        </field>
+    </record>
+</odoo>
