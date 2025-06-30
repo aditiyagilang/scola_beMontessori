@@ -1,0 +1,12 @@
+<odoo>
+  <record id="view_op_faculty_form_inherit_tags" model="ir.ui.view">
+    <field name="name">op.faculty.form.inherit.tags</field>
+    <field name="model">op.faculty</field>
+    <field name="inherit_id" ref="openeducat_core.view_op_faculty_form"/>
+    <field name="arch" type="xml">
+      <xpath expr="//group" position="inside">
+        <field name="employee_tag_ids" widget="many2many_tags"/>
+      </xpath>
+    </field>
+  </record>
+</odoo>
